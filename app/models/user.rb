@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   
 #12月26日追記    
   has_many :wants, class_name: "Want", foreign_key: "user_id", dependent: :destroy
-  has_many :wants_items , through: :wants, source: :item
+  has_many :want_items , through: :wants, source: :item
   
 #12月26日追記    
   has_many :haves, class_name: "Have", foreign_key: "user_id", dependent: :destroy
@@ -49,7 +49,8 @@ class User < ActiveRecord::Base
   end
 
   def have?(item)
-    haves.include?(item)
+    #12月27日課題　再提出修正
+    have_items.include?(item)
   end
 
   def want(item)
@@ -61,7 +62,8 @@ class User < ActiveRecord::Base
   end
 
   def want?(item)
-    wants.include?(item)
+    #12月27日課題　再提出修正
+    want_items.include?(item)
   end
   
 end
