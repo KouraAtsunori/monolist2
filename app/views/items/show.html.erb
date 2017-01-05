@@ -4,13 +4,14 @@
     <div class="item-single-main">
       <div class="image">
         <div class="img-wrap">
-          <% #TODO 商品イメージ %>
-          <%= image_tag("no-image.png" , alt: @item.title) %>
+          <% #TODO 商品イメージ20170105 課題追記 %>
+          <%= image_tag(@item.medium_image) %>
+ 
         </div>
       </div>
       <div class="title">
-        <% #TODO 商品タイトル %>
-        仮タイトル
+        <% #TODO 商品タイトル 20170105 課題追記 %>
+        <%= @item.title %>
       </div>
       <%= render 'action' , item: @item %>
     </div>
