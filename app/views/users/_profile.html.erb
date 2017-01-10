@@ -1,3 +1,9 @@
+<% #20170110 課題のため追記　meta %>
+<% content_for :head do %>
+<title><%= @user.name %></title>
+<meta name="description" content="<%= @user.name %>" >
+<% end %>
+
 <div class="user-profile">
   <div class="icon">
     <%= gravatar_for user, size: 100 %>

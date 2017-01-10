@@ -7,8 +7,11 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    relationship = current_user.following_relationships.find(params[:id])
-    @user = relationship.followed
-    current_item(@user)
+    #20170109 メンタリング修正ｓ
+    @relation = Relationship.find(params[:id])
+    @user = User.find(@relation.followed_id)
+    current_user.unfollow(@user)
+#    relationship = current_user.following_relationships.find(params[:id])
+
   end
 end

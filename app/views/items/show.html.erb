@@ -1,3 +1,8 @@
+<% #20170110 課題のため追記　meta %>
+<% content_for :head do %>
+<title><%= @item.title %></title>
+<meta name="description" content="<%= @item.title %>" >
+<% end %>
 
 <div class="container">
   <div class="container-inner inner-sm clearfix">
@@ -19,18 +24,24 @@
       <div class="side-box">
         <h4 class="side-box-title">Haveしたユーザー</h4>
         <div class="side-box-body">
-          <% # TODO Haveしたユーザー一覧 %>
+          <% # TODO Haveしたユーザー一覧　20170109 課題追記 %>
+          <% @item.have_users.each do |user| %>
+             <%= link_to gravatar_for(user, size: 30), user %>
+          <% end %>
         </div>
       </div>
       <div class="side-box">
         <h4 class="side-box-title">Wantしたユーザー</h4>
         <div class="side-box-body">
-          <% # TODO Wantしたユーザー一覧 %>
+          <% # TODO Wantしたユーザー一覧 20170109 課題追記 %>
+          <% @item.want_users.each do |user| %>
+             <%= link_to gravatar_for(user, size: 30), user %>
+          <% end %>
         </div>
       </div>
       <div class="text-center">
-        <% #TODO 正しいリンク先に %>
-        <%= link_to('楽天詳細ページへ', '#') %>
+        <% #TODO 正しいリンク先に 20170109 課題追記 %>
+        <%= link_to('楽天詳細ページへ', @item.detail_page_url, target: "_blank") %>
       </div>
     </div>
   </div>
