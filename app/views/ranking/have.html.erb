@@ -1,0 +1,10 @@
+<%#課題提出　20170114 追加  %>
+<% @items.each.with_index(1) do |item, index| %>
+<ul class="item-list">　
+   <li><%= index %> 位</li>
+   <li><%= item.title %></li>
+   <li><%= image_tag(item.small_image, alt:item.title) %></li>
+   <li><%= link_to("商品ページへ", item.detail_page_url, target:"_blank") %></li>
+
+  </ul>
+<% end %>

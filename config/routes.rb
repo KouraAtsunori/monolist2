@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :ownerships, only: [:create, :destroy]
   resources :items , only: [:new , :show]
 
+  #課題提出　20170114追加
+  get 'ranking/have', to: 'ranking#have'
+  get 'ranking/want', to: 'ranking#want'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
